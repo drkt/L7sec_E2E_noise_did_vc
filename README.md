@@ -1,60 +1,18 @@
+# Noise + DID + VC Example
 
-# noise_did_vc (using `ssi` crate)
+## Setup
 
-This project demonstrates a secure communication prototype using:
-- 🎯 DID key generation
-- 📄 Verifiable Credential issuance and verification
-- 🔐 Simulated Noise handshake (placeholder)
-- 🧾 Audit logging
-- 🧰 Modular architecture using Rust and async runtime
-
-## 🔧 Requirements
-
-- Rust (>= 1.70)
-- Cargo
-- Docker (optional, for container builds)
-
-## ▶️ Run
+1. Install Rust and Cargo: https://www.rust-lang.org/tools/install
+2. Clone this repo or extract the ZIP.
+3. Run the app:
 
 ```bash
+cargo build
 cargo run
 ```
 
-You should see:
-- Two DIDs (Alice and Bob) generated
-- A Verifiable Credential issued by Alice to Bob
-- Simulated handshake using Noise placeholder
+This example demonstrates a modular setup using:
+- Noise Handshake (stub)
+- DID and VC (using `ssi = 0.12`)
+- Logging
 
-## ✅ Test
-
-This version includes VC verification inline. You can extend integration tests under `tests/`.
-
-## 📁 Structure
-
-- `src/main.rs` – entry point
-- `did.rs` – DID creation via `ssi`
-- `vc.rs` – VC creation and verification
-- `noise.rs` – placeholder Noise handshake
-- `logging.rs` – structured log support
-
-## 🐳 Docker (optional)
-
-To build in a container:
-
-```bash
-docker build -t noise_did_vc .
-```
-
-## 📌 Notes
-
-- The Noise handshake is currently mocked.
-- You can replace it using the `snow` crate for full integration.
-
-## 📚 Resources
-
-- https://github.com/spruceid/ssi
-- https://crates.io/crates/snow
-
----
-
-© 2025 IETF ATLS Prototype
