@@ -1,6 +1,4 @@
-
-use log::info;
-
-pub fn log_event(message: &str) {
-    info!(target: "audit", "{}", message);
+// Dummy logging
+pub fn log_event(event: &str) {
+    println!("Log: {}", event);
 }
