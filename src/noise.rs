@@ -1,21 +1,8 @@
-use snow::{Builder, Keypair, params::NoiseParams};
-use std::sync::Arc;
 
-pub fn build_handshake(static_key: Option<Keypair>) -> anyhow::Result<Builder<'static>> {
-    let noise_params: NoiseParams = "Noise_XX_25519_AESGCM_SHA256".parse()?;
-    let builder = Builder::new(noise_params);
+use anyhow::Result;
+use ssi::jwk::JWK;
 
-    let builder = match static_key {
-        Some(kp) => {
-            let private = Arc::new(kp.private.clone());
-            builder.local_private_key(&private[..])
-        },
-        None => {
-            let keypair = builder.generate_keypair()?;
-            let private = Arc::new(keypair.private.clone());
-            builder.local_private_key(&private[..])
-        },
-    };
-
-    Ok(builder)
+pub fn run_noise_handshake(_local_key: &JWK, _remote_key: &JWK) -> Result<()> {
+    println!("Simulated Noise handshake with key material.");
+    Ok(())
 }
